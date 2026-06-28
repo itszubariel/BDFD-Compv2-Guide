@@ -1,6 +1,6 @@
 # $addTextDisplay
 
-`$addTextDisplay` adds a **text display** component to the message. Text displays show text in containers or sections.
+`$addTextDisplay` adds a **text display** component to the message. Text displays show text in containers, sections, or standalone without a parent.
 
 ---
 
@@ -11,7 +11,7 @@ $addTextDisplay[Content;(Container/Section ID)]
 ```
 
 - `Content`: the text to display.
-- `Container/Section ID`: optional ID of the container or section to attach this text to.
+- `Container/Section ID`: optional ID of the container or section to attach this text to. Leave empty to use the text standalone (not inside any parent).
 
 ---
 
@@ -58,10 +58,27 @@ The section shows the text with a thumbnail beside it.
 
 ---
 
+## Example 3: Standalone text (no parent)
+
+```
+$addTextDisplay[Hello, world!]
+$addTextDisplay[This text has no container or section around it.]
+```
+
+What happens:
+
+1. Both `$addTextDisplay` calls omit the Container/Section ID parameter.
+2. Each text display appears on its own, not nested inside any parent component.
+
+The text appears as plain message content without any container styling.
+
+---
+
 ## Common uses
 
 - **Adding descriptions or labels** to containers and sections
 - **Displaying multiple lines** of information
+- **Standalone text** when you don't need container styling
 
 ---
 
