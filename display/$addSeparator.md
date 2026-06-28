@@ -1,6 +1,6 @@
 # $addSeparator
 
-`$addSeparator` adds a **separator** component to the message. Separators create visual breaks between other components. They go inside containers.
+`$addSeparator` adds a **separator** component to the message. Separators create visual breaks between other components. They go inside containers or standalone without a parent.
 
 ---
 
@@ -14,7 +14,7 @@ All parameters are optional.
 
 - `Divider`: set to `true` to show a visible line, `false` for just spacing.
 - `Spacing`: the size of the spacing around the separator. Either `small` or `large`.
-- `Container ID`: optional ID of the container to put this separator inside.
+- `Container ID`: optional ID of the container to put this separator inside. Leave empty to use the separator standalone (not inside any container).
 
 ---
 
@@ -26,12 +26,12 @@ All parameters are optional.
 
 ---
 
-## Example 1: Small spacing with a divider
+## Example 1: Small spacing without a divider
 
 ```
 $addContainer[main]
 $addTextDisplay[Top section;main]
-$addSeparator[true;small;main]
+$addSeparator[false;small;main]
 $addTextDisplay[Bottom section;main]
 ```
 
@@ -46,21 +46,21 @@ The separator creates a clear visual break between the two text displays.
 
 ---
 
-## Example 2: Large spacing without a divider
+## Example 2: Large spacing with a divider
 
 ```
-$addContainer[main]
-$addTextDisplay[First block;main]
-$addSeparator[false;large;main]
-$addTextDisplay[Second block;main]
+$addTextDisplay[First block]
+$addSeparator[true;large]
+$addTextDisplay[Second block]
 ```
 
 What happens:
 
-1. `$addSeparator` adds extra vertical space with no visible line.
-2. The two text displays appear separated by a larger gap.
+1. The first text display appears on its own.
+2. `$addSeparator` adds extra vertical space with no visible line, not attached to any container.
+3. The second text display appears below.
 
-This is useful when you want spacing without a dividing line.
+The separator creates spacing without a dividing line.
 
 ---
 
@@ -69,6 +69,7 @@ This is useful when you want spacing without a dividing line.
 - **Separating different sections** of content in a container
 - **Adding spacing** between components for better readability
 - **Grouping related content** with dividers
+- **Standalone separators** when you need a break between uncontained components
 
 ---
 
